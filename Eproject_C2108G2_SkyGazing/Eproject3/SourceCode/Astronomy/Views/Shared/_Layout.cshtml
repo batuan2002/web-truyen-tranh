@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/header.css" rel="stylesheet" /> 
+</head>
+<body>
+    <!--Nav menu-->
+    <div>
+        @{Html.RenderPartial("_NavbarMenu");}
+    </div>
+    <!--Body-->
+    <div>
+        @RenderBody()
+    </div>
+
+    <!--Footer-->
+    <footer>
+        @{Html.RenderPartial("_Footer");}
+    </footer>
+    <!--End Footer-->
+
+    <div class="end">
+        <p>2023 Sky Gazing. Web design by Aptech. Web development by Aptech Developer.</p>
+    </div>
+</body>
+</html>
+

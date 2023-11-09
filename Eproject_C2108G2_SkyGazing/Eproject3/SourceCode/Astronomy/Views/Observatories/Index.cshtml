@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Astronomy.Models.Observatory>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" type="text/css" href="~/Content/News.css">
+}
+
+@{
+    List<Astronomy.Models.ImageOfObservatory> images = ViewBag.Images;
+}
+
+<div class="link">
+    <div class="link-container">
+        <!--Tiêu đề tin tức-->
+        <div class="news-title">
+        </div>
+
+
+        @foreach (Astronomy.Models.Observatory item in Model)
+        {
+            <div class="link-item">
+                <!--Ảnh-->
+                <div class="link-img">
+                    @for (int i = 0; i < images.Count; i++)
+                    {
+                        if (images[i].ObservatoryID == item.ObservatoryID)
+                        {
+                            <img src="@Url.Content(images[i].Image)" />
+                            break;
+                        }
+                    }
+                </div>
+                <!--Tiêu đề-->
+                <div class="link-title">
+                    <h3>@Html.DisplayFor(modelItem => item.ObservatoryName)</h3>
+                    @{
+                        string name = item.ObservatoryName + " Fact ->";
+                    }
+                    @Html.ActionLink(name, "Details", new { id = item.ObservatoryID })
+                </div>
+            </div>
+        }
+    </div>
+</div>

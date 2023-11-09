@@ -1,0 +1,143 @@
+﻿/*CSS main:*/
+.main {
+    width: 100%;
+    padding-top: 70px;
+    background-color: #051526;
+}
+
+.container {
+    max-width: 1080px;
+    height: 800px;
+    margin: 0 auto;
+    padding: 10px 15px;
+}
+
+.carousel {
+    display: block;
+    width: 100%;
+    padding-top: 56%;
+    height: 600px;
+    background-color: #051526;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+}
+
+.carousel {
+    position: relative;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel-image {
+    display: none;
+}
+
+.carousel-indicator:checked + .carousel-image {
+    display: inline-block;
+}
+
+.carousel {
+    overflow-x: hidden;
+}
+
+.carousel-image {
+    transition: all 0.9s;
+    left: -100%;
+}
+
+.carousel-indicator:checked ~ .carousel-image {
+    left: 100%;
+}
+
+.carousel-indicator:checked + .carousel-image {
+    left: 0;
+}
+
+.carousel {
+    text-align: center;
+    word-spacing: 12px;
+}
+
+.carousel-indicator {
+    position: relative;
+}
+
+.carousel-image {
+    z-index: 1;
+}
+
+.carousel-indicator {
+    z-index: 2;
+}
+
+.carousel {
+    padding-top: 54%;
+}
+/*Tips*/
+.container-tips {
+    width: 100%;
+    min-height: 1000px;
+    font-family: Arial;
+    color: whitesmoke;
+}
+
+.tips-title {
+    text-align: center;
+    color: whitesmoke;
+}
+
+    .tips-title .tips-title-big {
+        color: white;
+        font-size: 36px;
+    }
+
+.tips {
+    width: 80%;
+    height: 420px;
+    margin: 0 auto;
+    font-family: Arial;
+    margin-top: 40px;
+}
+
+    .tips .tips-content {
+        float: left;
+        width: 50%;
+        height: 405px;
+        padding: 120px 50px;
+        background-color: #333333;
+    }
+
+    .tips .tips-image {
+        width: 50%;
+        float: left;
+    }
+
+.content-main {
+    font-size: 32px;
+}
+
+.tips-image img {
+    width: 100%;
+}
+
+.tips-content button {
+    background-color: lightskyblue;
+    border: none;
+    color: black;
+    padding: 15px 36px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 30px;
+    font-weight: 550;
+    margin-top: 15px;
+    cursor: pointer;
+}

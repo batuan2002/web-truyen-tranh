@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AstronomyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Comets">
+    <Key>
+      <PropertyRef Name="CometID" />
+    </Key>
+    <Property Name="CometID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CometName" Type="nvarchar" MaxLength="250" />
+    <Property Name="EarthMOID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dimensions" Type="nvarchar" MaxLength="250" />
+    <Property Name="Meandiameter" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mass" Type="nvarchar" MaxLength="250" />
+    <Property Name="Aphelion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Perihelion" Type="nvarchar" MaxLength="250" />
+    <Property Name="DiscoveredBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="DiscoveredDate" Type="nvarchar" MaxLength="250" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Constellations">
+    <Key>
+      <PropertyRef Name="ConstellationID" />
+    </Key>
+    <Property Name="ConstellationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConstellationName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="250" />
+    <Property Name="Genitive" Type="nvarchar" MaxLength="250" />
+    <Property Name="Symbolism" Type="nvarchar" MaxLength="250" />
+    <Property Name="Declination" Type="nvarchar" MaxLength="250" />
+    <Property Name="Area" Type="nvarchar" MaxLength="250" />
+    <Property Name="MainStar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Meteor" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="FeedbackToComet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="bit" Type="bit" />
+    <Property Name="CometID" Type="int" />
+  </EntityType>
+  <EntityType Name="FeedbacktoConstellations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="ConstellationID" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="FeedbackToNews">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="NewsID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FeedbacktoObservatory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ObservatoryID" Type="int" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="FeedbackToPhenomena">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="PhenomenaID" Type="int" />
+  </EntityType>
+  <EntityType Name="FeedbacktoPlanets">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="PlanetID" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="ImageOfComet">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CometID" Type="int" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ImageOfConstellation">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConstellationID" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ImageOfNews">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NewsID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ImageOfObservatory">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObservatoryID" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ImageOfPhenomena">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhenomenaID" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ImageOfPlanet">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanetID" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewsID" />
+    </Key>
+    <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Observatories">
+    <Key>
+      <PropertyRef Name="ObservatoryID" />
+    </Key>
+    <Property Name="ObservatoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObservatoryName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Elevation" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObservatorySite" Type="nvarchar" MaxLength="250" />
+    <Property Name="Location" Type="nvarchar" MaxLength="250" />
+    <Property Name="coordinates" Type="nvarchar" MaxLength="250" />
+    <Property Name="Established" Type="int" />
+    <Property Name="TypeOfObservatory" Type="nvarchar" MaxLength="250" />
+    <Property Name="MajorInstruments" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Phenomenas">
+    <Key>
+      <PropertyRef Name="PhenomenaID" />
+    </Key>
+    <Property Name="PhenomenaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhenomenaName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="status" Type="bit" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+  </EntityType>
+  <EntityType Name="Planets">
+    <Key>
+      <PropertyRef Name="PlanetID" />
+    </Key>
+    <Property Name="PlanetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlanetName" Type="nvarchar" MaxLength="250" />
+    <Property Name="RecordedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="FirstRecord" Type="nvarchar" MaxLength="250" />
+    <Property Name="SurfaceTemperature" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrbitPeriod" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrbitDistance" Type="nvarchar" MaxLength="250" />
+    <Property Name="Rings" Type="nvarchar" MaxLength="50" />
+    <Property Name="NotableMoons" Type="nvarchar" MaxLength="250" />
+    <Property Name="KnownMoons" Type="nvarchar" MaxLength="250" />
+    <Property Name="EquatorialCircumference" Type="nvarchar" MaxLength="250" />
+    <Property Name="PolarDiameter" Type="nvarchar" MaxLength="250" />
+    <Property Name="EquatorialDiameter" Type="nvarchar" MaxLength="250" />
+    <Property Name="Mass" Type="nvarchar" MaxLength="250" />
+    <Property Name="atmosphere" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="EmployeeID" Type="int" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+  </EntityType>
+  <Association Name="FK_Comets_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Comets" Type="Self.Comets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Comets">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Constellations_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Constellations" Type="Self.Constellations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Constellations">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedbackToComet_Comets">
+    <End Role="Comets" Type="Self.Comets" Multiplicity="0..1" />
+    <End Role="FeedbackToComet" Type="Self.FeedbackToComet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comets">
+        <PropertyRef Name="CometID" />
+      </Principal>
+      <Dependent Role="FeedbackToComet">
+        <PropertyRef Name="CometID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedbacktoConstellations_Constellations">
+    <End Role="Constellations" Type="Self.Constellations" Multiplicity="0..1" />
+    <End Role="FeedbacktoConstellations" Type="Self.FeedbacktoConstellations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Constellations">
+        <PropertyRef Name="ConstellationID" />
+      </Principal>
+      <Dependent Role="FeedbacktoConstellations">
+        <PropertyRef Name="ConstellationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedbackToNews_News">
+    <End Role="News" Type="Self.News" Multiplicity="1" />
+    <End Role="FeedbackToNews" Type="Self.FeedbackToNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News">
+        <PropertyRef Name="NewsID" />
+      </Principal>
+      <Dependent Role="FeedbackToNews">
+        <PropertyRef Name="NewsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedbacktoObservatory_Observatories">
+    <End Role="Observatories" Type="Self.Observatories" Multiplicity="0..1" />
+    <End Role="FeedbacktoObservatory" Type="Self.FeedbacktoObservatory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Observatories">
+        <PropertyRef Name="ObservatoryID" />
+      </Principal>
+      <Dependent Role="FeedbacktoObservatory">
+        <PropertyRef Name="ObservatoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedbackToPhenomena_Phenomenas">
+    <End Role="Phenomenas" Type="Self.Phenomenas" Multiplicity="0..1" />
+    <End Role="FeedbackToPhenomena" Type="Self.FeedbackToPhenomena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phenomenas">
+        <PropertyRef Name="PhenomenaID" />
+      </Principal>
+      <Dependent Role="FeedbackToPhenomena">
+        <PropertyRef Name="PhenomenaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeedbacktoPlanets_Planets">
+    <End Role="Planets" Type="Self.Planets" Multiplicity="0..1" />
+    <End Role="FeedbacktoPlanets" Type="Self.FeedbacktoPlanets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planets">
+        <PropertyRef Name="PlanetID" />
+      </Principal>
+      <Dependent Role="FeedbacktoPlanets">
+        <PropertyRef Name="PlanetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImageOfComet_Comets">
+    <End Role="Comets" Type="Self.Comets" Multiplicity="0..1" />
+    <End Role="ImageOfComet" Type="Self.ImageOfComet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comets">
+        <PropertyRef Name="CometID" />
+      </Principal>
+      <Dependent Role="ImageOfComet">
+        <PropertyRef Name="CometID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImageOfConstellation_Constellations">
+    <End Role="Constellations" Type="Self.Constellations" Multiplicity="1" />
+    <End Role="ImageOfConstellation" Type="Self.ImageOfConstellation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Constellations">
+        <PropertyRef Name="ConstellationID" />
+      </Principal>
+      <Dependent Role="ImageOfConstellation">
+        <PropertyRef Name="ConstellationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImageOfNews_News">
+    <End Role="News" Type="Self.News" Multiplicity="1" />
+    <End Role="ImageOfNews" Type="Self.ImageOfNews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News">
+        <PropertyRef Name="NewsID" />
+      </Principal>
+      <Dependent Role="ImageOfNews">
+        <PropertyRef Name="NewsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImageOfObservatory_Observatories">
+    <End Role="Observatories" Type="Self.Observatories" Multiplicity="1" />
+    <End Role="ImageOfObservatory" Type="Self.ImageOfObservatory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Observatories">
+        <PropertyRef Name="ObservatoryID" />
+      </Principal>
+      <Dependent Role="ImageOfObservatory">
+        <PropertyRef Name="ObservatoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImageOfPhenomena_Phenomenas">
+    <End Role="Phenomenas" Type="Self.Phenomenas" Multiplicity="1" />
+    <End Role="ImageOfPhenomena" Type="Self.ImageOfPhenomena" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phenomenas">
+        <PropertyRef Name="PhenomenaID" />
+      </Principal>
+      <Dependent Role="ImageOfPhenomena">
+        <PropertyRef Name="PhenomenaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ImageOfPlanet_Planets">
+    <End Role="Planets" Type="Self.Planets" Multiplicity="1" />
+    <End Role="ImageOfPlanet" Type="Self.ImageOfPlanet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planets">
+        <PropertyRef Name="PlanetID" />
+      </Principal>
+      <Dependent Role="ImageOfPlanet">
+        <PropertyRef Name="PlanetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_News_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="News" Type="Self.News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="News">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Observatories_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Observatories" Type="Self.Observatories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Observatories">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phenomenas_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Phenomenas" Type="Self.Phenomenas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Phenomenas">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Planets_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Planets" Type="Self.Planets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Planets">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Planets_Employee1">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Planets" Type="Self.Planets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Planets">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Role">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AstronomyModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comets" EntityType="Self.Comets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Constellations" EntityType="Self.Constellations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedbackToComet" EntityType="Self.FeedbackToComet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedbacktoConstellations" EntityType="Self.FeedbacktoConstellations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedbackToNews" EntityType="Self.FeedbackToNews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedbacktoObservatory" EntityType="Self.FeedbacktoObservatory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedbackToPhenomena" EntityType="Self.FeedbackToPhenomena" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeedbacktoPlanets" EntityType="Self.FeedbacktoPlanets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageOfComet" EntityType="Self.ImageOfComet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageOfConstellation" EntityType="Self.ImageOfConstellation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageOfNews" EntityType="Self.ImageOfNews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageOfObservatory" EntityType="Self.ImageOfObservatory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageOfPhenomena" EntityType="Self.ImageOfPhenomena" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageOfPlanet" EntityType="Self.ImageOfPlanet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Observatories" EntityType="Self.Observatories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phenomenas" EntityType="Self.Phenomenas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Planets" EntityType="Self.Planets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Comets_Employee" Association="Self.FK_Comets_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Comets" EntitySet="Comets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Constellations_Employee" Association="Self.FK_Constellations_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Constellations" EntitySet="Constellations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedbackToComet_Comets" Association="Self.FK_FeedbackToComet_Comets">
+      <End Role="Comets" EntitySet="Comets" />
+      <End Role="FeedbackToComet" EntitySet="FeedbackToComet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedbacktoConstellations_Constellations" Association="Self.FK_FeedbacktoConstellations_Constellations">
+      <End Role="Constellations" EntitySet="Constellations" />
+      <End Role="FeedbacktoConstellations" EntitySet="FeedbacktoConstellations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedbackToNews_News" Association="Self.FK_FeedbackToNews_News">
+      <End Role="News" EntitySet="News" />
+      <End Role="FeedbackToNews" EntitySet="FeedbackToNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedbacktoObservatory_Observatories" Association="Self.FK_FeedbacktoObservatory_Observatories">
+      <End Role="Observatories" EntitySet="Observatories" />
+      <End Role="FeedbacktoObservatory" EntitySet="FeedbacktoObservatory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedbackToPhenomena_Phenomenas" Association="Self.FK_FeedbackToPhenomena_Phenomenas">
+      <End Role="Phenomenas" EntitySet="Phenomenas" />
+      <End Role="FeedbackToPhenomena" EntitySet="FeedbackToPhenomena" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeedbacktoPlanets_Planets" Association="Self.FK_FeedbacktoPlanets_Planets">
+      <End Role="Planets" EntitySet="Planets" />
+      <End Role="FeedbacktoPlanets" EntitySet="FeedbacktoPlanets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImageOfComet_Comets" Association="Self.FK_ImageOfComet_Comets">
+      <End Role="Comets" EntitySet="Comets" />
+      <End Role="ImageOfComet" EntitySet="ImageOfComet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImageOfConstellation_Constellations" Association="Self.FK_ImageOfConstellation_Constellations">
+      <End Role="Constellations" EntitySet="Constellations" />
+      <End Role="ImageOfConstellation" EntitySet="ImageOfConstellation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImageOfNews_News" Association="Self.FK_ImageOfNews_News">
+      <End Role="News" EntitySet="News" />
+      <End Role="ImageOfNews" EntitySet="ImageOfNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImageOfObservatory_Observatories" Association="Self.FK_ImageOfObservatory_Observatories">
+      <End Role="Observatories" EntitySet="Observatories" />
+      <End Role="ImageOfObservatory" EntitySet="ImageOfObservatory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImageOfPhenomena_Phenomenas" Association="Self.FK_ImageOfPhenomena_Phenomenas">
+      <End Role="Phenomenas" EntitySet="Phenomenas" />
+      <End Role="ImageOfPhenomena" EntitySet="ImageOfPhenomena" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ImageOfPlanet_Planets" Association="Self.FK_ImageOfPlanet_Planets">
+      <End Role="Planets" EntitySet="Planets" />
+      <End Role="ImageOfPlanet" EntitySet="ImageOfPlanet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_News_Employee" Association="Self.FK_News_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="News" EntitySet="News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Observatories_Employee" Association="Self.FK_Observatories_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Observatories" EntitySet="Observatories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phenomenas_Employee" Association="Self.FK_Phenomenas_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Phenomenas" EntitySet="Phenomenas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Planets_Employee" Association="Self.FK_Planets_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Planets" EntitySet="Planets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Planets_Employee1" Association="Self.FK_Planets_Employee1">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Planets" EntitySet="Planets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Employee" Association="Self.FK_Users_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

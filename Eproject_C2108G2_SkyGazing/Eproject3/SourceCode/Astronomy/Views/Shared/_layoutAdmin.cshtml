@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown menu Jquery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="~/js/app.js"></script>
+    <link rel="stylesheet" href="~/Content/admin.css">
+</head>
+<body>
+    <div class="menu-top">
+        <ul>
+            <li><a>Administrator</a></li>
+            <li>@Html.ActionLink("Go to Website", "Index", "Home")</li>
+            <li>@Html.ActionLink("Log out", "Logout", "Users")</li>
+            <li style="color:white;padding:10px">@Session["Username"]</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="container-left">
+            
+            <ul class="dropdown-menu">
+                <!--dashboard-->
+                <li>@Html.ActionLink("Dashboard", "Index", "Admin")</li>
+                <!--Planets-->
+                <li>
+                    @Html.ActionLink("Planets", "IndexAdmin", "Planets")
+                    <i class="icon-menu fas fa-chevron-down"></i>
+                    <ul class="sub-menu">
+                        <li>@Html.ActionLink("Images", "Index", "ImageOfPlanets")</li>
+                        <li>@Html.ActionLink("Feedback", "Index", "FeedbacktoPlanets")</li>
+                    </ul>
+                </li>
+
+                <!--Constellations-->
+                <li>
+                    @Html.ActionLink("Constellations", "IndexAdmin", "Constellations")
+                    <i class="icon-menu fas fa-chevron-down"></i>
+                    <ul class="sub-menu">
+                        <li>@Html.ActionLink("Images", "Index", "ImageOfConstellations")</li>
+                        <li>@Html.ActionLink("Feedback", "Index", "FeedbacktoConstellations")</li>
+                    </ul>
+                </li>
+                <!--Comets-->
+                <li>
+                    @Html.ActionLink("Comets", "IndexAdmin", "Comets")
+                    <i class="icon-menu fas fa-chevron-down"></i>
+                    <ul class="sub-menu">
+                        <li>@Html.ActionLink("Images", "Index", "ImageOfComets")</li>
+                        <li>@Html.ActionLink("Feedback", "Index", "FeedbackToComets")</li>
+                    </ul>
+                </li>
+                <!--Observatories-->
+                <li>
+                    @Html.ActionLink("Observatories", "IndexAdmin", "Observatories")
+                    <i class="icon-menu fas fa-chevron-down"></i>
+                    <ul class="sub-menu">
+                        <li>@Html.ActionLink("Images", "Index", "ImageOfObservatories")</li>
+                        <li>@Html.ActionLink("Feedback", "Index", "FeedbacktoObservatories")</li>
+                    </ul>
+                </li>
+                <!--News-->
+                <li>
+                    @Html.ActionLink("News", "IndexAdmin", "News")
+                    <i class="icon-menu fas fa-chevron-down"></i>
+                    <ul class="sub-menu">
+                        <li>@Html.ActionLink("Images", "Index", "ImageOfNews")</li>
+                        <li>@Html.ActionLink("Feedback", "Index", "FeedbackToNews")</li>
+                    </ul>
+                </li>
+                <!--Phenomenas-->
+                <li>
+                    @Html.ActionLink("Phenomenas", "IndexAdmin", "Phenomena")
+                    <i class="icon-menu fas fa-chevron-down"></i>
+                    <ul class="sub-menu">
+                        <li>@Html.ActionLink("Images", "Index", "ImageOfPhenomenas")</li>
+                        <li>@Html.ActionLink("Feedback", "Index", "FeedbackToPhenomenas")</li>
+                    </ul>
+                </li>
+                <!--Employee-->
+                <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
+            </ul>
+        </div>
+        <div class="container-right">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $('.dropdown-menu .icon-menu').click(function () {
+            $(this).parent('li').children('.sub-menu').slideToggle();
+            $(this).toggleClass('fa-chevron-down fa-chevron-right');
+        });
+    });
+</script>
+</html>
+
+

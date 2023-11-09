@@ -1,0 +1,116 @@
+﻿@model Astronomy.Models.Phenomena
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" type="text/css" href="~/Content/News_Details.css">
+}
+
+<!--Title-->
+<header>
+    <h1>@Html.DisplayFor(model => model.PhenomenaName)</h1>
+</header>
+
+<!--Details-->
+<div class="main">
+    <div class="container">
+        @foreach (Astronomy.Models.ImageOfPhenomena item in ViewBag.Image)
+        {
+            <!--Ảnh tin tức-->
+            if (item.PhenomenaID == Model.PhenomenaID)
+            {
+                <div class="news-image">
+                    <img src="@Url.Content(item.Image)" />
+                </div>
+            }
+        }
+
+        <!--Nội dung-->
+        <div class="description">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+    </div>
+</div>
+<!--Feedback-->
+<div class="feedback">
+    <div class="feedback-container">
+
+        <div class="feedback-title">
+            <h2>Feedback</h2>
+        </div>
+        <div>
+            <form action="@Url.Action("AddFeedback", "Phenomena")" method="post" id="feedback">
+                <input type="hidden" name="PhenomenaID" value="@Model.PhenomenaID" />
+                <input type="hidden" name="Date" value="@DateTime.Now" />
+                <input type="hidden" name="Status" value="true" />
+
+                <div class="form-group">
+                    <div class="name">
+                        <label>Name: </label>
+                        <input type="text" name="Name" placeholder="Name" required />
+                    </div>
+                    <div class="email">
+                        <label>Email: </label>
+                        <input type="email" name="Email" placeholder="Email" required />
+                    </div>
+                </div>
+
+                <div class="des">
+                    Description:
+                    <textarea form="feedback" name="Description" rows="4" cols="450"></textarea>
+                </div>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        <div class="feedback-content">
+            @foreach (Astronomy.Models.FeedbackToPhenomena item in ViewBag.feedback)
+            {
+                <h4>@item.Name</h4>
+                <p>@item.Date</p>
+                <p>@item.Description</p>
+            }
+        </div>
+    </div>
+</div>
+
+
+<!--Link-->
+@{
+    int i = 0;
+}
+<div class="link">
+    <div class="link-container">
+        <!--Tiêu đề tin tức-->
+        @foreach (Astronomy.Models.Phenomena item in ViewBag.link)
+        {
+            i++;
+            if (i == 3)
+            {
+                break;
+            }
+            <div class="link-item">
+                <!--Ảnh-->
+                <div class="link-img">
+                    @foreach (Astronomy.Models.ImageOfPhenomena image in ViewBag.Image)
+                    {
+                        if (image.PhenomenaID == item.PhenomenaID)
+                        {
+                            <img src="@Url.Content(image.Image)" />
+                            break;
+                        }
+
+                    }
+                </div>
+                <!--Tiêu đề-->
+                <div class="link-title">
+                    <h3>@Html.DisplayFor(modelItem => item.PhenomenaName)</h3>
+                    <h4>@Html.DisplayFor(modelItem => item.Title)</h4>
+                    @{
+                        string name = item.PhenomenaName + " Fact ->";
+                    }
+                    @Html.ActionLink(name, "Details", new { id = item.PhenomenaID })
+                </div>
+            </div>
+        }
+    </div>
+</div>

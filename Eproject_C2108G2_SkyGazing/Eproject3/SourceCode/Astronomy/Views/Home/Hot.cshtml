@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Hot";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" type="text/css" href="~/Content/News.css">
+}
+@{ 
+    List<Astronomy.Models.ImageOfNew> images = ViewBag.imagenews;
+    List<Astronomy.Models.News> news = ViewBag.news;
+    int count = 0;
+}
+<div class="link">
+    <div class="link-container">
+        
+        @foreach (Astronomy.Models.News item in news)
+        {
+            count++;
+            if (count > 5)
+            {
+                break;
+            }
+            <div class="link-item">
+                <!--Ảnh-->
+
+                <div class="link-img">
+                    @foreach (Astronomy.Models.ImageOfNew i in images)
+                    {
+
+                        if (i.NewsID == item.NewsID)
+                        {
+                            <a href=""><img src="@Url.Content(i.Image)" /></a>
+                            break;
+                        }
+
+                    }
+
+                </div>
+                <!--Tiêu đề-->
+                <div class="link-title">
+                    @Html.ActionLink(item.Title, "Details","News", new { id = item.NewsID },new {})
+                </div>
+            </div>
+        }
+    </div>
+</div>

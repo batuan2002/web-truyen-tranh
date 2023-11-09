@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Astronomy.Models.Phenomena>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" type="text/css" href="~/Content/News.css">
+}
+
+@{
+    List<Astronomy.Models.ImageOfPhenomena> images = ViewBag.Images;
+}
+
+<div class="link">
+    <div class="link-container">
+        <!--Tiêu đề tin tức-->
+        <div class="news-title">
+            <h4>Astronomical events are events such as eclipses or novae that astronomy studies, whereas "astronomy events" refers to events such as meetings, conferences and other such newsworthy occasions relating to astronomy.</h4>
+        </div>
+
+
+        @foreach (Astronomy.Models.Phenomena item in Model)
+        {
+            <div class="link-item">
+                <!--Ảnh-->
+                <div class="link-img">
+                    @for (int i = 0; i < images.Count; i++)
+                    {
+                        if (images[i].PhenomenaID == item.PhenomenaID)
+                        {
+                            <img src="@Url.Content(images[i].Image)" />
+                            break;
+                        }
+                    }
+                </div>
+                <!--Tiêu đề-->
+                <div class="link-title">
+                    <h3>@Html.DisplayFor(modelItem => item.PhenomenaName)</h3>
+                    @Html.DisplayFor(modelItem=>item.Title)
+                    <br />
+                    @{
+                        string name = item.PhenomenaName + " Fact ->";
+                    }
+                    @Html.ActionLink(name, "Details", new { id = item.PhenomenaID })
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Astronomy.Models.Constellation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" type="text/css" href="~/Content/News.css">
+}
+
+@{
+    List<Astronomy.Models.ImageOfConstellation> images = ViewBag.Images;
+}
+
+<div class="link">
+    <div class="link-container">
+        <!--Tiêu đề tin tức-->
+        <div class="news-title">
+            <h3>
+                In contemporary astronomy, 88 constellations are recognized by the International Astronomical Union (IAU).[1] Each constellation is a region of the sky, bordered by arcs of right ascension and declination. Together they cover the celestial sphere, with their boundaries adopted officially by the International Astronomical Union in 1928 and published in 1930.[2]
+
+                The ancient Mesopotamians and later the Greeks established most of the northern constellations in international use today, listed by the Roman-Egyptian astronomer Ptolemy. The constellations along the ecliptic are called the zodiac. When explorers mapped the stars of the southern skies, European astronomers proposed new constellations for that region, as well as ones to fill gaps between the traditional constellations. Due to Roman and European transmission each constellation has a Latin name. In 1922, the International Astronomical Union adopted three-letter abbreviations for 89 constellations, the modern list of 88 plus Argo. After this, Eugène Joseph Delporte drew up boundaries for each of the 88 constellations so that every point in the sky belonged to one constellation
+            </h3>
+        </div>
+
+
+        @foreach (Astronomy.Models.Constellation item in Model)
+        {
+            <div class="link-item">
+                <!--Ảnh-->
+                <div class="link-img">
+                    @for (int i = 0; i < images.Count; i++)
+                    {
+                        if (images[i].ConstellationID == item.ConstellationID)
+                        {
+                            <img src="@Url.Content(images[i].Image)" />
+                            break;
+                        }
+                    }
+                </div>
+                <!--Tiêu đề-->
+                <div class="link-title">
+                    <h3>@Html.DisplayFor(modelItem => item.ConstellationName)</h3>
+                    @{
+                        string name = item.ConstellationName + " Fact ->";
+                    }
+                    @Html.ActionLink(name, "Details", new { id = item.ConstellationID })
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Astronomy.Models.Observatory>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>List of Observatory</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Observatory Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            Creater
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="hover">
+        <td>
+            @Html.DisplayFor(modelItem => item.ObservatoryName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ObservatoryID }) |
+            @Html.ActionLink("Details", "DetailsAdmin", new { id=item.ObservatoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ObservatoryID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,54 @@
+﻿<div class="head">
+    <div class="header-toolbar">
+        <!--Logo-->
+        <div class="header-logo">
+            <a href="~/Views/Home/Home.cshtml"><img src="~/Image/logo-removebg-preview.png" /></a>
+        </div>
+
+        <!--Logo Title-->
+        <div class="header-title">
+            <strong style="color: white">SKY GAZING</strong> <br />
+            <small style="color: white">astronomical supply company</small>
+        </div>
+
+        <!--Menu-->
+        <nav>
+            <ul>
+
+                <li>@Html.ActionLink("Home", "Index", "Home", new { }, new { })</li>
+                <li>@Html.ActionLink("Hot", "Hot", "Home", new { }, new { })</li>
+                <li class="dropdown">
+                    <a href="#">Categories</a>
+                    <div class="dropdown-content">
+                        @Html.ActionLink("Planets", "Index", "Planets", new { }, new { @class = "drop-a" })
+                        @Html.ActionLink("Comets", "Index", "Comets", new { }, new { @class = "drop-a" })
+                        @Html.ActionLink("Constellations", "Index", "Constellations", new { }, new { @class = "drop-a" })
+                        @Html.ActionLink("Observatories", "Index", "Observatories", new { }, new { @class = "drop-a" })
+                       
+                    </div>
+                </li>
+                <li>@Html.ActionLink("News", "Index", "News", new { }, new { })</li>
+                <li>@Html.ActionLink("Phenomenas", "Index", "Phenomena", new { }, new { })</li>
+                <li class="dropdown">
+                    <a href="#">More</a>
+                    <div class="dropdown-content">
+                        @Html.ActionLink("Image", "Images", "Home", new { }, new { @class = "drop-a" })
+                        <a class="drop-a" href="@Url.Action("WhenGazing","Home")">When to go stargazing </a>
+                        <a class="drop-a" href="@Url.Action("WhereGazing","Home")">Where to go stargazing</a>
+                        <a class="drop-a" href="@Url.Action("WhatSeeGazing","Home")">What see gazing</a>
+                    </div>
+                </li>
+                <li>@Html.ActionLink("About Us", "AboutUs", "Home", new { }, new { })</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home", new { }, new { })</li>
+            </ul>
+        </nav>
+        <!--End menu-->
+        <!--Search-->
+        <div class="header-search">
+            <form action="@Url.Action("Search","Home")" method="post">
+                <input type="text" class="search" placeholder="Search..." name="search" / required>
+            </form>
+        </div>
+        <!--End Search-->
+    </div>
+</div>

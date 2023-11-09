@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Astronomy.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" type="text/css" href="~/Content/News.css">
+}
+
+@{ 
+    List<Astronomy.Models.ImageOfNew> images = ViewBag.Image;
+}
+<div class="link">
+    <div class="link-container">
+        <!--Tiêu đề tin tức-->
+        <div class="news-title">
+            <h1>NEWS</h1>
+        </div>
+        
+        
+            @foreach (Astronomy.Models.News item in Model)
+            {
+                <div class="link-item">
+                    <!--Ảnh-->
+
+                    <div class="link-img">
+                        @foreach(Astronomy.Models.ImageOfNew i in images)
+                        {
+                            if (i.NewsID == item.NewsID)
+                            {
+                                <a href=""><img src="@Url.Content(i.Image)" /></a>
+                                break;
+                            }
+
+                        }
+
+                    </div>
+                    <!--Tiêu đề-->
+                    <div class="link-title">
+                        @Html.ActionLink(item.Title, "Details", new { id = item.NewsID })
+                    </div>
+                </div>
+            }
+    </div>
+</div>

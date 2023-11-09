@@ -1,0 +1,212 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" type="text/css" href="~/Content/News.css">
+}
+@{
+    List<Astronomy.Models.Planet> listplanet = ViewBag.listplanet;
+    List<Astronomy.Models.ImageOfPlanet> imagesPlanet = ViewBag.imagesPlanet;
+
+    List<Astronomy.Models.Comet> listComet = ViewBag.listComet;
+    List<Astronomy.Models.ImageOfComet> imagesComet = ViewBag.imagesComet;
+
+    List<Astronomy.Models.Observatory> listObser = ViewBag.listObser;
+    List<Astronomy.Models.ImageOfObservatory> imagesobser = ViewBag.imagesobser;
+
+    List<Astronomy.Models.Constellation> listConstellation = ViewBag.listConstellation;
+    List<Astronomy.Models.ImageOfConstellation> imagesCon = ViewBag.imagesCon;
+
+    List<Astronomy.Models.News> listnews = ViewBag.listnews;
+    List<Astronomy.Models.ImageOfNew> imagesNews = ViewBag.imagesNews;
+
+    List<Astronomy.Models.Phenomena> listphenomane = ViewBag.listphenomane;
+    List<Astronomy.Models.ImageOfPhenomena> imagesPheno = ViewBag.imagesPheno;
+
+    string search = ViewBag.search;
+}
+<div class="link">
+    <div class="link-container">
+        <!--Tiêu đề tin tức-->
+        <div class="news-title">
+        </div>
+        @{
+            if (listplanet.Count == 0 && listComet.Count == 0 && listObser.Count == 0 && listConstellation.Count == 0 && listnews.Count == 0 && listphenomane.Count == 0)
+            {
+                <div class="link-title">
+                    <h3> Search not found: @search</h3>
+                </div>
+            }
+            else
+            {
+                // list planet
+                if (listplanet.Count > 0)
+                {
+                    foreach (Astronomy.Models.Planet item in listplanet)
+                    {
+                        <div class="link-item">
+                            <!--Ảnh-->
+                            <div class="link-img">
+                                @foreach (Astronomy.Models.ImageOfPlanet i in imagesPlanet)
+                                {
+                                    if (i.PlanetID == item.PlanetID)
+                                    {
+                                        <img src="@Url.Content(i.Image)" />
+                                        break;
+                                    }
+                                }
+                            </div>
+                            <!--Tiêu đề-->
+                            <div class="link-title">
+                                <h3>@Html.DisplayFor(modelItem => item.PlanetName)</h3>
+                                @{
+                                    string name = item.PlanetName + " Fact ->";
+                                }
+                                @Html.ActionLink(name, "Details", "Planets", new { id = item.PlanetID }, new { })
+                            </div>
+                        </div>
+                    }
+                }
+                //list Comet
+                if (listComet.Count > 0)
+                {
+                    foreach (Astronomy.Models.Comet item in listComet)
+                    {
+                        <div class="link-item">
+                            <!--Ảnh-->
+                            <div class="link-img">
+                                @foreach (Astronomy.Models.ImageOfComet i in imagesComet)
+                                {
+                                    if (i.CometID == item.CometID)
+                                    {
+                                        <img src="@Url.Content(i.Image)" />
+                                        break;
+                                    }
+                                }
+                            </div>
+                            <!--Tiêu đề-->
+                            <div class="link-title">
+                                <h3>@Html.DisplayFor(modelItem => item.CometName)</h3>
+                                @{
+                                    string name = item.CometName + " Fact ->";
+                                }
+                                @Html.ActionLink(name, "Details", "Comets", new { id = item.CometID }, new { })
+                            </div>
+                        </div>
+                    }
+                }
+                //list Observatory
+                if (listObser.Count > 0)
+                {
+                    foreach (Astronomy.Models.Observatory item in listObser)
+                    {
+                        <div class="link-item">
+                            <!--Ảnh-->
+                            <div class="link-img">
+                                @foreach (Astronomy.Models.ImageOfObservatory i in imagesobser)
+                                {
+                                    if (i.ObservatoryID == item.ObservatoryID)
+                                    {
+                                        <img src="@Url.Content(i.Image)" />
+                                        break;
+                                    }
+                                }
+                            </div>
+                            <!--Tiêu đề-->
+                            <div class="link-title">
+                                <h3>@Html.DisplayFor(modelItem => item.ObservatoryName)</h3>
+                                @{
+                                    string name = item.ObservatoryName + " Fact ->";
+                                }
+                                @Html.ActionLink(name, "Details", "Observatories", new { id = item.ObservatoryID }, new { })
+                            </div>
+                        </div>
+                    }
+                }
+                //list Constellations
+                if (listConstellation.Count > 0)
+                {
+                    foreach (Astronomy.Models.Constellation item in listConstellation)
+                    {
+                        <div class="link-item">
+                            <!--Ảnh-->
+                            <div class="link-img">
+                                @foreach (Astronomy.Models.ImageOfConstellation i in imagesCon)
+                                {
+                                    if (i.ConstellationID == item.ConstellationID)
+                                    {
+                                        <img src="@Url.Content(i.Image)" />
+                                        break;
+                                    }
+                                }
+                            </div>
+                            <!--Tiêu đề-->
+                            <div class="link-title">
+                                <h3>@Html.DisplayFor(modelItem => item.ConstellationName)</h3>
+                                @{
+                                    string name = item.ConstellationName + " Fact ->";
+                                }
+                                @Html.ActionLink(name, "Details", "Constellations", new { id = item.ConstellationID }, new { })
+                            </div>
+                        </div>
+                    }
+                }
+                //list News
+                if (listnews.Count > 0)
+                {
+                    foreach (Astronomy.Models.News item in listnews)
+                    {
+                        <div class="link-item">
+                            <!--Ảnh-->
+                            <div class="link-img">
+                                @foreach (Astronomy.Models.ImageOfNew i in imagesNews)
+                                {
+                                    if (i.NewsID == item.NewsID)
+                                    {
+                                        <img src="@Url.Content(i.Image)" />
+                                        break;
+                                    }
+                                }
+                            </div>
+                            <!--Tiêu đề-->
+                            <div class="link-title">
+                                <h3>@Html.ActionLink(item.Title, "Details", "News", new { id = item.NewsID }, new { })</h3>
+                            </div>
+                        </div>
+                    }
+                }
+                // list Phenomenas
+                if (listphenomane.Count > 0)
+                {
+                    foreach (Astronomy.Models.Phenomena item in listphenomane)
+                    {
+                        <div class="link-item">
+                            <!--Ảnh-->
+                            <div class="link-img">
+                                @foreach (Astronomy.Models.ImageOfPhenomena i in imagesPheno)
+                                {
+                                    if (i.PhenomenaID == item.PhenomenaID)
+                                    {
+                                        <img src="@Url.Content(i.Image)" />
+                                        break;
+                                    }
+                                }
+                            </div>
+                            <!--Tiêu đề-->
+                            <div class="link-title">
+                                <h3>@Html.DisplayFor(modelItem => item.PhenomenaName)</h3>
+                                <h4>@Html.DisplayFor(modelitem => item.Title)</h4>
+                                @{
+                                    string name = item.PhenomenaName + " Fact ->";
+                                }
+                                @Html.ActionLink(name, "Details", "Phenomena", new { id = item.PhenomenaID }, new { })
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        }
+
+    </div>
+</div>
+

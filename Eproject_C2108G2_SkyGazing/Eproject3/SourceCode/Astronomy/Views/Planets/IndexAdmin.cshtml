@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Astronomy.Models.Planet>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>List of Planets</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Planet Name
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Creater
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class ="hover">
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanetName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee1.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PlanetID }) |
+            @Html.ActionLink("Details", "DetailsAdmin", new { id = item.PlanetID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PlanetID })
+        </td>
+    </tr>
+}
+
+</table>

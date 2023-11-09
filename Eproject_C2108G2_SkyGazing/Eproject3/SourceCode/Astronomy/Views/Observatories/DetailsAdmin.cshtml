@@ -1,0 +1,107 @@
+﻿@model Astronomy.Models.Observatory
+
+@{
+    ViewBag.Title = "DetailsAdmin";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Observatory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ObservatoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObservatoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Elevation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Elevation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObservatorySite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObservatorySite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.coordinates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.coordinates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Established)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Established)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfObservatory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfObservatory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MajorInstruments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MajorInstruments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ObservatoryID }) |
+    @Html.ActionLink("Back to List", "IndexAdmin")
+</p>

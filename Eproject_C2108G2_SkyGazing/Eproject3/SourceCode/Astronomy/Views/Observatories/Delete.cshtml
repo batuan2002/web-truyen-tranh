@@ -1,0 +1,105 @@
+﻿@model Astronomy.Models.Observatory
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Observatory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ObservatoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObservatoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Elevation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Elevation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObservatorySite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObservatorySite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.coordinates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.coordinates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Established)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Established)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfObservatory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfObservatory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MajorInstruments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MajorInstruments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FirstName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "IndexAdmin")
+        </div>
+    }
+</div>

@@ -1,0 +1,161 @@
+﻿@model Astronomy.Models.Planet
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Planet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstRecord)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstRecord)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurfaceTemperature)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurfaceTemperature)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrbitPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrbitPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrbitDistance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrbitDistance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotableMoons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotableMoons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KnownMoons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KnownMoons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquatorialCircumference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquatorialCircumference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PolarDiameter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PolarDiameter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquatorialDiameter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquatorialDiameter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.atmosphere)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.atmosphere)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee1.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee1.FirstName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "IndexAdmin")
+        </div>
+    }
+</div>

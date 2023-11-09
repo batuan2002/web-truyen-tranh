@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+    int countPlanets = ViewBag.countPlanets;
+    int countConstellations = ViewBag.countConstellations;
+    int countPhenomenas = ViewBag.countPhenomenas;
+    int countNews = ViewBag.countNews;
+    int countObservatories = ViewBag.countObservatories;
+    int countComets = ViewBag.countComets;
+}
+
+<h2 style="text-align:center">@ViewBag.stt</h2>
+<h4 style="color:blue;text-align:center">All Categories</h4>
+<table class="table">
+
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>Total</th>
+        <th></th>
+    </tr>
+    <!--Planets-->
+    <tr class="hover">
+        <!--Planets-->
+        <td>
+            Planets
+        </td>
+        <td>
+            @countPlanets
+        </td>
+        <td>
+            @Html.ActionLink("View", "IndexAdmin", "Planets")
+        </td>
+
+    </tr>
+    <!--Comets-->
+    <tr class="hover">
+        <td>
+            Comets
+        </td>
+        <td>
+            @countComets
+        </td>
+        <td>
+            @Html.ActionLink("View", "IndexAdmin", "Comets")
+        </td>
+
+        </tr class="hover">
+        <!--Constellations-->
+    <tr class="hover">
+        <td>
+            Constellations
+        </td>
+        <td>
+            @countConstellations
+        </td>
+        <td>
+            @Html.ActionLink("View", "IndexAdmin", "Constellations")
+        </td>
+
+    </tr>
+    <!--Observatories-->
+    <tr class="hover">
+        <td>
+            Observatories
+        </td>
+        <td>
+            @countObservatories
+        </td>
+        <td>
+            @Html.ActionLink("View", "IndexAdmin", "Observatories")
+        </td>
+
+    </tr>
+    <!--News-->
+    <tr class="hover">
+        <td>
+            News about Astronomy
+        </td>
+        <td>
+            @countNews
+        </td>
+        <td>
+            @Html.ActionLink("View", "IndexAdmin", "News")
+        </td>
+
+    </tr>
+    <!--Phenomena-->
+    <tr class="hover">
+        <td>
+            Phenomena about Astronomy
+        </td>
+        <td>
+            @countPhenomenas
+        </td>
+        <td>
+            @Html.ActionLink("View", "IndexAdmin", "Phenomena")
+        </td>
+
+    </tr>
+
+</table>

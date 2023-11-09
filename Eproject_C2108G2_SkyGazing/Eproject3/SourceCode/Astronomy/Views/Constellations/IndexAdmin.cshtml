@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Astronomy.Models.Constellation>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>List of Constellations</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Constellation Name
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            Creater
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="hover">
+        <td>
+            @Html.DisplayFor(modelItem => item.ConstellationName)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ConstellationID }) |
+            @Html.ActionLink("Details", "DetailsAdmin", new { id=item.ConstellationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ConstellationID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Astronomy.Models.Comet>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+    Layout = "~/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>List of Comets</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Comet Name
+        </th>
+        
+        <th>
+            Status
+        </th>
+        <th>
+            Creater
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="hover">
+        <td>
+            @Html.DisplayFor(modelItem => item.CometName)
+        </td>
+ 
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CometID }) |
+            @Html.ActionLink("Details", "DetailsAdmin", new { id=item.CometID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CometID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Sky Gazing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="~/Content/banner.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+}
+<div class="main">
+    <!--Slideshow-->
+    <section class="container">
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+                <img src="~/Image/planets-solar-system.jpg" style="width:100%" />
+                <div class="text">
+                    <h2 style="color:red">learn about the planets around</h2>
+                    <a href="@Url.Action("Details","Planets")"><button class="button button2">Planet -></button></a>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="~/Image/Comet.jpg" style="width:100%" />
+                <div class="text">
+                    <h2 style="color:red">Or are you interested in common comets?</h2>
+                    <a href="@Url.Action("Details","Comets")"><button class="button button2">Comets -></button></a>
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="~/Image/Star-Constellations-1280x720.jpg" style="width:100%" />
+                <div class="text">
+                    <h2 style="color:red">Look at the constellations, if you want</h2>
+                    <a href="@Url.Action("Details","Constellations")"><button class="button button2">Constellations -></button></a>
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+    <!--End Slideshow-->
+    <!--Hints and tips-->
+    <section class="container-tips">
+        <!--Tips title-->
+        <div class="tips-title">
+            <p class="tips-title-big">Want to know more?</p><br />
+            <p>Hints and tips to help you further your interest in astronomy</p>
+        </div>
+
+        <div class="tips">
+            <div class="tips-content">
+                <p class="content-main">When is best to stargaze?</p><br />
+                <p>If you're planning a trip to a dark sky site or <br /> observatory make sure you time it right with these tips and tricks!</p>
+                <a href="@Url.Action("WhenGazing","Home")"><button type="button">READ MORE</button></a>
+            </div>
+            <div class="tips-image">
+                <img src="~/Image/homepage-when-is-best-to-stargaze.jpg" />
+            </div>
+        </div>
+        <div class="tips">
+            <div class="tips-image">
+                <img src="~/Image/tips_image1.jpg" />
+            </div>
+            <div class="tips-content">
+                <p class="content-main">Where is best to stargaze?</p><br />
+                <p>From dark sky reserves and discovery sites to your nearby <br /> beauty spots, we offer advice on finding the best stargazing locations</p>
+                <a href="@Url.Action("WhereGazing","Home")"><button type="button">READ MORE</button></a>
+            </div>
+        </div>
+        <div class="tips">
+            <div class="tips-content">
+                <p class="content-main">What can you expect to see?</p><br />
+                <p>From clusters to double stars, nebulea to galaxies... <br /> What exactly might you expect to see when stargazing?</p>
+                <a href="@Url.Action("WhatSeeGazing","Home")"><button type="button">READ MORE</button></a>
+            </div>
+            <div class="tips-image">
+                <img src="~/Image/tips_image3.jpg" />
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
